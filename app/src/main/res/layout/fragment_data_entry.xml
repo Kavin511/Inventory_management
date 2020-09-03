@@ -1,13 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
     tools:context=".DataEntry">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollIndicators="right"
+        android:fadeScrollbars="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:layerType="software"
+        android:foregroundGravity="top"
+        android:focusableInTouchMode="true"
+        
+        android:touchscreenBlocksFocus="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/vehiclename"
+                android:inputType="textPersonName"
+                android:hint="Enter Vehicle name"
+                /></com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+                <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/model"
+                android:hint="Enter Model number"
+                android:inputType="textShortMessage"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+                <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/inspectionReport"
+                android:hint="Enter Inspection Report"
+                android:inputType="textEmailSubject"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended spares :"
+                android:gravity="left"
+                android:layout_gravity="left"
+                android:textSize="20sp"
+                android:padding="1dp"
+                android:layout_margin="10dp"
+                android:textColor="#000"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="top"
+                android:background="@color/TextOdd">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_margin="14dp"> <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:id="@+id/desc"
+                    android:hint="Enter description"
+                    android:inputType="textFilter"/></com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_margin="14dp">  <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:id="@+id/partnum"
+                    android:hint="Enter part Number"
+                    android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_margin="14dp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textSize="16sp"
+                        android:id="@+id/quantity"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
-</androidx.core.widget.NestedScrollView>
+                        android:hint="Enter Quantity in litres"
+                        android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_margin="14dp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textSize="16sp"
+                        android:id="@+id/cost"
+
+                        android:hint="Enter total Cost"
+                        android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp"> <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/action"
+
+                android:hint="Enter Action Taken"
+                android:inputType="text"
+                /></com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">   <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/location"
+
+                android:hint="Enter Location"
+                android:inputType="text"
+                /></com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">    <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:id="@+id/remark"
+
+                android:hint="Enter Remarks"
+                android:inputType="text"
+                /></com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_custom"
+                android:text="Add"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

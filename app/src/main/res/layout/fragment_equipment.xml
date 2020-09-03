@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:theme="@style/Theme.AppCompat.Light"
+    tools:context=".ui.equipment.equipmentFragment">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"
+        android:layout_above="@+id/EquipmentBottom"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/EquipmentBottom"
+        app:menu="@menu/equipment_menu"
+        android:elevation="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        app:labelVisibilityMode="selected"
+        app:itemIconTint="@drawable/bottom_navigation_color_selector"
+        android:background="@drawable/bottom_navigation_background"
+        app:itemTextColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        />
+</RelativeLayout>

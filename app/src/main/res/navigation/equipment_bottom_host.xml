@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/equipment_bottom_host"
+    app:startDestination="@+id/bot_entry">
+    <fragment
+        android:id="@+id/bot_entry"
+        android:name="com.example.vehiclemanager.DataEntry"
+        android:label="New entry"
+        tools:layout="@layout/fragment_data_entry" />
+
+    <fragment
+        android:id="@+id/bot_history"
+        android:name="com.example.vehiclemanager.history"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/bot_graph"
+        android:name="com.example.vehiclemanager.graph"
+        android:label="Graph"
+        tools:layout="@layout/fragment_graph" />
+</navigation>
+

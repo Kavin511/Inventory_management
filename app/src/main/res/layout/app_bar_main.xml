@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity2">
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/content"
+        android:elevation="16dp"
+        android:background="@drawable/actionbar_background"
         android:theme="@style/AppBarOverlay"
         >
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:backgroundTint="#807F7F"
+            app:popupTheme="@style/PopupOverlay"
 
-            app:popupTheme="@style/PopupOverlay" />
-
+            />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <include layout="@layout/content_main"
+        android:layout_below="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</RelativeLayout>

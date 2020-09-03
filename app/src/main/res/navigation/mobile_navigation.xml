@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.vehiclemanager.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.vehiclemanager.ui.filler.fillerFragment"
+        android:label="Filler Inspection Report"
+        tools:layout="@layout/fragment_filler" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.vehiclemanager.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.vehiclemanager.ui.equipment.equipmentFragment"
+        android:label="Equipment Inspection Report"
+        tools:layout="@layout/fragment_equipment" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.vehiclemanager.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.vehiclemanager.ui.account.accountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/signout"
+        android:name="com.example.vehiclemanager.signout"
+        android:label="Sign Out"
+        tools:layout="@layout/fragment_signout" />
+
 </navigation>
