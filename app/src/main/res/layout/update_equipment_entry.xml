@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
-    tools:context=".DataEntry">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +12,7 @@
         android:layerType="software"
         android:foregroundGravity="top"
         android:focusableInTouchMode="true"
-        
+
         android:touchscreenBlocksFocus="true"
         >
         <LinearLayout
@@ -32,26 +25,26 @@
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/vehiclename"
-                android:inputType="textPersonName"
-                android:hint="Enter Vehicle name"
-                /></com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:id="@+id/vehiclename"
+                    android:inputType="textPersonName"
+                    android:hint="Enter Vehicle name"
+                    /></com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
                 <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/model"
-                android:hint="Enter Model number"
-                android:inputType="textShortMessage"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:id="@+id/model"
+                    android:hint="Enter Model number"
+                    android:inputType="textShortMessage"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -59,12 +52,12 @@
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
                 <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/inspectionReport"
-                android:hint="Enter Inspection Report"
-                android:inputType="textEmailSubject"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:id="@+id/inspectionReport"
+                    android:hint="Enter Inspection Report"
+                    android:inputType="textEmailSubject"/>
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -116,7 +109,7 @@
                         android:textSize="16sp"
                         android:id="@+id/quantity"
 
-                        android:hint="Enter Quantity"
+                        android:hint="Enter Quantity in litres"
                         android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -174,19 +167,9 @@
                 android:hint="Enter Remarks"
                 android:inputType="text"
                 /></com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:id="@+id/Add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_custom"
-                android:text="Add"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textAllCaps="false"
-                android:layout_margin="10dp"
-                />
         </LinearLayout>
 
     </ScrollView>
+
 
 </RelativeLayout>

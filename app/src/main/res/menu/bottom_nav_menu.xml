@@ -4,7 +4,7 @@
     <item
         android:id="@+id/filler_entry"
         android:icon="@drawable/ic_baseline_add_box_24"
-        android:title="Filler entry" />
+        android:title="Filter entry" />
 
     <item
         android:id="@+id/history"

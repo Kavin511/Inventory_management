@@ -37,7 +37,7 @@ import static android.content.ContentValues.TAG;
 import java.util.Calendar;
 
 public class FillerDataEntry extends Fragment {
-    EditText hydraulicoil,engineoil,transmissionoil,gearoil,coolantoil,filter,partnumm,estimated_cost,ending_reading,starting_reading;
+    EditText hydraulicoil,engineoil,transmissionoil,gearoil,coolantoil,filter,partnumm,estimated_cost,ending_reading,starting_reading,model_num,filter2,partnum;
     Button add_filler;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -58,6 +58,9 @@ public class FillerDataEntry extends Fragment {
         starting_reading=v.findViewById(R.id.starting_reading);
         estimated_cost=v.findViewById(R.id.estimated_cost);
         ending_reading=v.findViewById(R.id.ending_reading);
+        model_num=v.findViewById(R.id.model_num);
+        filter2=v.findViewById(R.id.filter2);
+        partnum=v.findViewById(R.id.partnum2);
         Map<String,Object> filler=new HashMap<>();
         ProgressDialog progressDialog=new ProgressDialog(getActivity());
         progressDialog.setContentView(R.layout.progressdialog);
@@ -74,10 +77,13 @@ public class FillerDataEntry extends Fragment {
                 String coolant=coolantoil.getText().toString().trim().length()>0?coolantoil.getText().toString().trim():"N/A";
                 String filt=filter.getText().toString().trim().length()>0?filter.getText().toString().trim():"N/A";
                 String part=partnumm.getText().toString().trim().length()>0?partnumm.getText().toString().trim():"N/A";
-                String add=add_filler.getText().toString().trim().length()>0?add_filler.getText().toString().trim():"N/A";
-                String ending=ending_reading.getText().toString().trim().length()>0?add_filler.getText().toString().trim():"N/A";
+//                String add=add_filler.getText().toString().trim().length()>0?add_filler.getText().toString().trim():"N/A";
+                String ending=ending_reading.getText().toString().trim().length()>0?ending_reading.getText().toString().trim():"N/A";
                 String cost=estimated_cost.getText().toString().trim().length()>0?estimated_cost.getText().toString().trim():"0";
                 String starting=starting_reading.getText().toString().trim().length()>0?starting_reading.getText().toString().trim():"0";
+                String partnum2=partnum.getText().toString().trim();
+                String model=model_num.getText().toString().trim();
+                String filt2=filter2.getText().toString().trim();
                 String date=simpleDateFormat.format(calendar.getTime());
                 String time=currentTime.toString().trim();
                 filler.put("hydraulic",hydraulic);
@@ -92,14 +98,16 @@ public class FillerDataEntry extends Fragment {
                 filler.put("cost",cost);
                 filler.put("starting",starting);
                 filler.put("ending",ending);
-
+                filler.put("partnum2",partnum2);
+                filler.put("model_num",model);
+                filler.put("filter2",filt2);
 //                timestamp:firebase.firestore.FieldValue.serverTimestamp()
                 progressDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                         WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 progressDialog.show();
                 FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
                 String userid=firebaseAuth.getCurrentUser().getUid();
-                db.collection("users").document(userid).collection("filler_details").add(filler).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                db.collection("users").document(userid).collection("filter_details").add(filler).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(),"Added Successfully",Toast.LENGTH_LONG).show();

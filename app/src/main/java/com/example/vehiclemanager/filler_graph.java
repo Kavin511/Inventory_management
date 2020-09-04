@@ -86,7 +86,7 @@ public class filler_graph extends Fragment {
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
         progressDialog.show();
-        db.collection("users").document(userid).collection("filler_details").orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("users").document(userid).collection("filter_details").orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful())

@@ -6,6 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:id="@+id/equip_hist"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".history">
     <ScrollView

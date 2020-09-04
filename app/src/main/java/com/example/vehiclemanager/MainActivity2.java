@@ -1,5 +1,7 @@
 package com.example.vehiclemanager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -39,6 +41,7 @@ public class MainActivity2 extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
         DrawerLayout drawer = findViewById(drawer_layout);
         NavigationView navigationView = findViewById(nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -53,7 +56,6 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -66,5 +68,20 @@ public class MainActivity2 extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton("No", null)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity2.super.onBackPressed();
+
+                    }
+                }).create().show();
     }
 }

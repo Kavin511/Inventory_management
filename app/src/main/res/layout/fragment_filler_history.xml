@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:id="@+id/fill_hist"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".filler_history">
 <!--    <com.google.android.material.textfield.TextInputLayout-->

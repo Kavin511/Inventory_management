@@ -263,7 +263,7 @@ Button add;
                 Toast.makeText(getContext(),"Error occured",Toast.LENGTH_LONG).show();
             }
         });
-       db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+       db.collection("users").document(userid).collection("user_details").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
            @Override
            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                if(task.isSuccessful())

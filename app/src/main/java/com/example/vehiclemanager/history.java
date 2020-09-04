@@ -1,6 +1,8 @@
 package com.example.vehiclemanager;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +27,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,6 +72,8 @@ public class history extends Fragment {
                              Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_history, container, false);
         FirebaseFirestore db=FirebaseFirestore.getInstance();
+        if(container!=null)
+            container.removeAllViews();
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         String userid=firebaseAuth.getCurrentUser().getUid();
         ProgressDialog progressDialog=new ProgressDialog(getActivity());
@@ -87,6 +98,116 @@ public class history extends Fragment {
                         int padding = getResources().getDimensionPixelOffset(R.dimen.padding);
                         textView.setPadding(padding,padding,padding,padding);
                         textView.setText(k);
+                        String documentid=document.getId();
+                        textView.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                final    AlertDialog.Builder alertDialogueBuilder=new AlertDialog.Builder(getActivity());
+
+                                alertDialogueBuilder.setTitle("Are you sure to update ?");
+
+                                alertDialogueBuilder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        final    AlertDialog.Builder updateDialogBuilder=new AlertDialog.Builder(getActivity());
+                                        View promt=getLayoutInflater().inflate(R.layout.update_equipment_entry,null);
+                                        updateDialogBuilder.setView(promt);
+                                        updateDialogBuilder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+
+                                            }
+                                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                                        final AlertDialog updateDialog=updateDialogBuilder.create();
+                                        updateDialog.show();
+                                        EditText hydraulicoil,engineoil,transmissionoil,gearoil,coolantoil,filter,partnumm,estimated_cost,ending_reading,starting_reading;
+                                        EditText vehiclename,model,inspectionReport,desc,partnum,quantity,cost,action,location,remark;
+                                        vehiclename=promt.findViewById(R.id.vehiclename);
+                                        model=promt.findViewById(R.id.model);
+                                        inspectionReport=promt.findViewById(R.id.inspectionReport);
+                                        desc=promt.findViewById(R.id.desc);
+                                        partnum=promt.findViewById(R.id.partnum);
+                                        quantity=promt.findViewById(R.id.quantity);
+                                        cost=promt.findViewById(R.id.cost);
+                                        location=promt.findViewById(R.id.location);
+                                        remark=promt.findViewById(R.id.remark);
+                                        action=promt.findViewById(R.id.action);
+                                        vehiclename.setText(document.get("vehiclename").toString());
+                                                model.setText(document.get("model").toString());
+                                        inspectionReport.setText(document.get("inspectionReport").toString());
+                                                desc.setText(document.get("desc").toString());
+                                        partnum.setText(document.get("partnum").toString());
+                                                quantity.setText(document.get("quantity").toString());
+                                        cost.setText(document.get("cost").toString());
+                                                location.setText(document.get("location").toString());
+                                        remark.setText(document.get("remark").toString());
+                                                action.setText(document.get("action").toString());
+
+                                        updateDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String S_vehiclename = vehiclename.getText().toString().trim().length()>0?(vehiclename.getText().toString()).trim():"N/A";
+                                                String S_inspectionReport= inspectionReport.getText().toString().trim().length()>0?inspectionReport.getText().toString().trim():"N/A";
+                                                String S_desc         =desc.getText().toString().trim().length()>0?desc.getText().toString().trim() :"N/A";
+                                                String S_partnum= partnum.getText().toString().trim().length()>0?partnum.getText().toString().trim() :"N/A";
+                                                String S_quantity=         quantity.getText().toString().trim().length()>0?quantity.getText().toString().trim():"N/A";
+                                                String S_cost =cost.getText().toString().trim().length()>0?cost.getText().toString().trim():"0";
+                                                String S_location=         location.getText().toString().trim().length()>0?location.getText().toString().trim():"N/A";
+                                                String S_remark =remark.getText().toString().trim().length()>0?remark.getText().toString():"N/A";
+                                                String S_model =  model.getText().toString().trim().length()>0?model.getText().toString().trim():"N/A";
+                                                String S_action =       action.getText().toString().trim().length()>0? action.getText().toString():"N/A";
+                                                Map<String,Object> equipment=new HashMap<>();
+                                                ProgressDialog progressDialog=new ProgressDialog(getActivity());
+                                                progressDialog.setContentView(R.layout.progressdialog);
+                                                progressDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                                                        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                                Date currentTime = Calendar.getInstance().getTime();
+                                                Calendar calendar = Calendar.getInstance();
+                                                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
+                                                equipment.put("vehiclename",S_vehiclename);
+                                                equipment.put("model",S_model);
+                                                equipment.put("inspectionReport",S_inspectionReport);
+                                                equipment.put("desc",S_desc);
+                                                equipment.put("partnum",S_partnum);
+                                                equipment.put("quantity",S_quantity);
+                                                equipment.put("cost",S_cost);
+                                                equipment.put("location",S_location);
+                                                equipment.put("remark",S_remark);
+                                                equipment.put("action",S_action);
+                                                String date=simpleDateFormat.format(calendar.getTime());
+                                                String time=currentTime.toString().trim();
+                                                equipment.put("date",date);
+                                                equipment.put("time",time);
+                                                progressDialog.show();
+                                                FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+                                                progressDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                                                        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                                progressDialog.show();
+                                                db.collection("users").document(userid).collection("Equipment_details").document(documentid).update(equipment);
+                                                getChildFragmentManager().beginTransaction().replace(R.id.equip_hist,new history()).commit();
+                                                progressDialog.dismiss();
+                                                updateDialog.dismiss();
+                                            }
+                                        });
+                                    }
+                                });
+                                alertDialogueBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                final AlertDialog alertDialog=alertDialogueBuilder.create();
+                                alertDialog.show();
+                                return true;
+                            }
+                        });
                         textView.setBackground(getResources().getDrawable(R.drawable.text_vehicle));
                         v++;
                         if(v%2==0)
@@ -118,6 +239,7 @@ public class history extends Fragment {
                 Toast.makeText(getContext(),"Add Equipment details",Toast.LENGTH_SHORT).show();
             }
         });
+
         return v;
     }
 }

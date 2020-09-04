@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_library_books_24"
-            android:title="Filler Report" />
+            android:title="Filter Inspection Report" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_baseline_collections_bookmark_24"

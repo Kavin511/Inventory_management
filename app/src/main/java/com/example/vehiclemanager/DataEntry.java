@@ -54,7 +54,7 @@ public class DataEntry extends Fragment {
                String S_inspectionReport= inspectionReport.getText().toString().trim().length()>0?inspectionReport.getText().toString().trim():"N/A";
                String S_desc         =desc.getText().toString().trim().length()>0?desc.getText().toString().trim() :"N/A";
                String S_partnum= partnum.getText().toString().trim().length()>0?partnum.getText().toString().trim() :"N/A";
-               String S_quantity=         quantity.getText().toString().trim().length()>0?quantity.getText().toString().trim()+"    litres":"N/A";
+               String S_quantity=         quantity.getText().toString().trim().length()>0?quantity.getText().toString().trim():"N/A";
                String S_cost =cost.getText().toString().trim().length()>0?cost.getText().toString().trim():"0";
                String S_location=         location.getText().toString().trim().length()>0?location.getText().toString().trim():"N/A";
                String S_remark =remark.getText().toString().trim().length()>0?remark.getText().toString():"N/A";

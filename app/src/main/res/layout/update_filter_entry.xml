@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:id="@+id/filter_update"
     android:orientation="vertical"
-    android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
-    android:focusableInTouchMode="true"
-    tools:context=".FillerDataEntry">
+    android:layout_gravity="center"
+    android:gravity="center">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -100,7 +96,7 @@
             </LinearLayout>
 
 
-<!--            Todo-->
+            <!--            Todo-->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,63 +110,63 @@
                     android:textSize="16sp" android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        style="@style/TextInputLayoutStyle"
-    android:layout_margin="10dp"
-    >
-    <EditText
-        android:id="@+id/hydraulicoil"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Enter hydraulic oil in L"
-      android:textSize="16sp"
-        android:inputType="number"/>
-</com.google.android.material.textfield.TextInputLayout>
-<com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/TextInputLayoutStyle"
-    android:layout_margin="10dp">
-    <EditText
-        android:id="@+id/transmissionoil"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-android:textSize="16sp"
-        android:hint="Enter transmission oil in L"
-       android:inputType="number" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp"
+                >
+                <EditText
+                    android:id="@+id/hydraulicoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Enter hydraulic oil in L"
+                    android:textSize="16sp"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+                <EditText
+                    android:id="@+id/transmissionoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:hint="Enter transmission oil in L"
+                    android:inputType="number" />
 
-</com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/TextInputLayoutStyle"
-    android:layout_margin="10dp">
-    <EditText
-        android:id="@+id/gearoil"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Enter gear oil in L"
-       android:textSize="16sp" android:inputType="number" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+                <EditText
+                    android:id="@+id/gearoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Enter gear oil in L"
+                    android:textSize="16sp" android:inputType="number" />
 
-</com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/TextInputLayoutStyle"
-    android:layout_margin="10dp">
-    <EditText
-        android:id="@+id/coolantoil"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-android:textSize="16sp"
-        android:hint="Enter coolant oil in L"
-       android:inputType="number" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_margin="10dp">
+                <EditText
+                    android:id="@+id/coolantoil"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:hint="Enter coolant oil in L"
+                    android:inputType="number" />
 
-</com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -211,16 +207,10 @@ android:textSize="16sp"
                     android:hint="Enter Estimated Cost"
                     android:textSize="16sp" android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/add_filler"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_custom"
-                android:text="Add"
-                android:textAllCaps="false" />
+
 
         </LinearLayout>
     </ScrollView>
+
 
 </RelativeLayout>
